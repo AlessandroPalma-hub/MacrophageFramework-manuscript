@@ -18,6 +18,21 @@ dir.create(input_dir, recursive = TRUE, showWarnings = FALSE)
 # in this repository due to its file size.
 obj_adipose <- readRDS("PATH_TO_SEURAT_OBJECT.RDS")
 
+ontology <- load_ontology("v0.4")
+
+framework_result <- analyze_macrophage_profile(
+  object = obj_adipose,
+  ontology = ontology,
+  assay = "RNA",
+  layer = "counts",
+  reduction = "umap.harmony",
+  detect_macrophages = FALSE,
+  macrophage_clusters = as.character(0:8),
+  species = "Human",
+  output_dir = base_dir,
+  save_outputs = TRUE
+)
+
 framework_result <- readRDS(file.path(base_dir, "framework_result.rds"))
 
 # Export raw counts and cell/gene identifiers for CellTypist.
