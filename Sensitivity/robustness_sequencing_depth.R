@@ -7,7 +7,7 @@
 # ============================================================
 
 # ----------------------------
-# 1. Settings
+# 1a. Settings
 # ----------------------------
 
 # Load the MacrophageFramework release used in the manuscript.
@@ -28,6 +28,24 @@ COUNTS_LAYER <- "counts"
 CLUSTER_COLUMN <- "seurat_clusters"
 MIN_CORE_SCORE <- 0.1
 SPECIES <- "Human"
+
+# ----------------------------
+# 1b. Load baseline objects
+# ----------------------------
+OVARIAN_DIR <- file.path(
+  "Figure2_mouse_lung__human_ovarian",
+  "GSE224392_final"
+)
+
+ovarian <- readRDS(
+  file.path(OVARIAN_DIR, "GSE224392_processed.rds")
+)
+
+baseline_ovarian <- readRDS(
+  file.path(OVARIAN_DIR, "baseline_ovarian.rds")
+)
+
+ontology_v04 <- load_ontology("v0.4")
 
 # ----------------------------
 # 2. Validate session
