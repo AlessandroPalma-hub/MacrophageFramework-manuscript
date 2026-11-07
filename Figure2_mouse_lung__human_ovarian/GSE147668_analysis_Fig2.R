@@ -23,10 +23,14 @@ library(Matrix)
 library(Seurat)
 
 # Load the current MacrophageFramework source code
-devtools::load_all(
-  path = "/Users/alessandro/Desktop/Dati/PROGETTI ONGOING/Progetto Computational Framework Macrofagi/MacrophageFramework/MacrophageFramework",
-  quiet = TRUE
+# Load the unweighted MacrophageFramework release used in the manuscript
+devtools::install_github(
+  "AlessandroPalma-hub/MacrophageFramework",
+  ref = "manuscript-unweighted-v1.0.0",
+  upgrade = "never"
 )
+
+library(MacrophageFramework)
 
 
 # 2. Configuration --------------------------------------------
