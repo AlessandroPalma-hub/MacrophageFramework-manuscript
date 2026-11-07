@@ -18,6 +18,7 @@ dir.create(input_dir, recursive = TRUE, showWarnings = FALSE)
 # in this repository due to its file size.
 obj_adipose <- readRDS("PATH_TO_SEURAT_OBJECT.RDS")
 
+# Run MacrophageFramework on the preprocessed Seurat object.
 ontology <- load_ontology("v0.4")
 
 framework_result <- analyze_macrophage_profile(
