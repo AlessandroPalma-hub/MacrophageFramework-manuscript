@@ -5,8 +5,6 @@
 # Leave-one-gene-out and random gene-set subsampling
 # ============================================================
 
-library(Seurat)
-library(MacrophageFramework)
 library(Matrix)
 library(ggplot2)
 library(dplyr)
@@ -14,11 +12,23 @@ library(tidyr)
 
 set.seed(2026)
 
+library(Seurat)
+library(devtools)
+
+devtools::install_github(
+  "AlessandroPalma-hub/MacrophageFramework",
+  ref = "manuscript-unweighted-v1.0.0",
+  upgrade = "never"
+)
+
+library(MacrophageFramework)
+
 # ------------------------------------------------------------
 # 1. INPUTS AND SETTINGS
 # ------------------------------------------------------------
 
-seurat_file <- "../datasets/GSE224392_RAW/GSE224392_ovarian_4_processed.rds"
+# Path to the preprocessed ovarian Seurat object.
+seurat_file <- "PATH_TO_PREPROCESSED_SEURAT_OBJECT.RDS"
 
 output_dir <- "Ontology_Robustness"
 plot_dir <- file.path(output_dir, "Plots")
