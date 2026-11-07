@@ -21,7 +21,7 @@ dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
 
 counts <- readRDS(file.path(DATA_DIR, "merged_counts_sparse.rds"))
 
-metadata <- readRDS(file.path(base, "atlas_merged_metadata.rds"))
+metadata <- readRDS(file.path(DATA_DIR, "atlas_merged_metadata.rds"))
 
 rownames(metadata) <- sub("^[^.]+[.]", "", rownames(metadata))
 
@@ -38,7 +38,7 @@ atlas <- CreateSeuratObject(
 
 saveRDS(
   atlas,
-  file = file.path(base, "atlas_seurat.rds"),
+  file = file.path(output_dir, "atlas_seurat.rds"),
   compress = FALSE
 )
 
@@ -194,7 +194,7 @@ write.csv(markers, file.path(output_dir, "cluster_markers_all.csv"), row.names =
 write.csv(top10, file.path(output_dir, "cluster_markers_top10.csv"), row.names = FALSE)
 
 checkpoint <- file.path(
-  base,
+  output_dir,
   "atlas_harmony_30PC_res0.5.rds"
 )
 
