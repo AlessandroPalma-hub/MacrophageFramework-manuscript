@@ -236,6 +236,12 @@ human_result <- analyze_macrophage_profile(
   detect_macrophages = TRUE
 )
 
+# Save baseline result for sequencing-depth sensitivity analysis
+saveRDS(
+  human_result,
+  file = file.path(OUTPUT_DIR, "baseline_ovarian.rds")
+)
+
 # --------------------------------------------------
 # Feature plots
 # --------------------------------------------------
