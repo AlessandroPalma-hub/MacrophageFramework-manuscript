@@ -35,24 +35,19 @@ library(MacrophageFramework)
 
 # 2. Configuration --------------------------------------------
 
-PROJECT_DIR <- paste0(
-  "/Users/alessandro/Desktop/Dati/PROGETTI ONGOING/",
-  "Progetto Computational Framework Macrofagi/",
-  "MacrophageFramework/MacrophageFramework"
-)
+# Directories
+# Set this path to the directory containing the downloaded GEO count matrix.
+DATA_DIR <- "PATH_TO_GSE147668_RAW_DIRECTORY"
 
 COUNTS_FILE <- file.path(
-  PROJECT_DIR,
-  "..",
-  "datasets",
-  "GSE147668_RAW",
+  DATA_DIR,
   "GSE147668_table_counts_lungimmune.tsv"
 )
 
-OUTPUT_DIR <- file.path(
-  PROJECT_DIR,
-  "GSE147668_final"
-)
+# Results will be saved in this directory.
+OUTPUT_DIR <- "GSE147668_final"
+
+dir.create(OUTPUT_DIR, recursive = TRUE, showWarnings = FALSE)
 
 dir.create(
   OUTPUT_DIR,
