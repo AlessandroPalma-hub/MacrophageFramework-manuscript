@@ -15,11 +15,15 @@ library(ggplot2)
 # Project paths
 # --------------------------------------------------
 
-PROJECT_DIR <- "/Users/alessandro/Desktop/Dati/PROGETTI ONGOING/Progetto Computational Framework Macrofagi/MacrophageFramework/MacrophageFramework"
+# --------------------------------------------------
+# Project paths
+# --------------------------------------------------
 
-DATA_DIR <- file.path(PROJECT_DIR, "..", "datasets", "GSE224392_RAW")
+# Set this path to the directory containing the downloaded
+# GSE224392 10x files (barcodes, features and matrix).
+DATA_DIR <- "PATH_TO_GSE224392_RAW_DIRECTORY"
 
-OUTPUT_DIR <- file.path(PROJECT_DIR, "GSE224392_final")
+OUTPUT_DIR <- "GSE224392_final"
 
 dir.create(
   OUTPUT_DIR,
@@ -35,13 +39,16 @@ dir.create(
 )
 
 # --------------------------------------------------
-# Load current package source
+# Load MacrophageFramework release used in the manuscript
 # --------------------------------------------------
 
-devtools::load_all(
-  path = PROJECT_DIR,
-  quiet = TRUE
+devtools::install_github(
+  "AlessandroPalma-hub/MacrophageFramework",
+  ref = "manuscript-unweighted-v1.0.0",
+  upgrade = "never"
 )
+
+library(MacrophageFramework)
 
 # --------------------------------------------------
 # Reproducibility
