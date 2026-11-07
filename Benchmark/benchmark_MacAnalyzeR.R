@@ -18,7 +18,11 @@ library(devtools)
 
 set.seed(1982)
 
-data_file <- "../datasets/GSE155960_RAW/Oggetto_Seurat_macrofagi.RDS"
+# Load the preprocessed Seurat object generated from GSE155960.
+# This object is required to run the benchmark and is not included
+# in this repository due to its file size.
+
+data_file <- "PATH_TO_SEURAT_OBJECT.RDS"
 framework_repo <- "PATH_TO_LOCAL_MACROPHAGEFRAMEWORK_REPOSITORY"
 output_dir <- "GSE155960_Benchmark"
 
