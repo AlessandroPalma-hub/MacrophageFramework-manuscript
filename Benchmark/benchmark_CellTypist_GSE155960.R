@@ -13,7 +13,11 @@ base_dir <- "benchmark_CellTypist/GSE155960"
 input_dir <- file.path(base_dir, "CellTypist_input")
 dir.create(input_dir, recursive = TRUE, showWarnings = FALSE)
 
-obj_adipose <- readRDS("../datasets/GSE155960_RAW/Oggetto_Seurat_macrofagi.RDS")
+# Load the preprocessed Seurat object generated from GSE155960.
+# This object is required for the benchmark and is not included
+# in this repository due to its file size.
+obj_adipose <- readRDS("PATH_TO_SEURAT_OBJECT.RDS")
+
 framework_result <- readRDS(file.path(base_dir, "framework_result.rds"))
 
 # Export raw counts and cell/gene identifiers for CellTypist.
