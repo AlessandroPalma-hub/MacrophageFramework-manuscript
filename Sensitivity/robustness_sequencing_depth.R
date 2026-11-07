@@ -9,6 +9,16 @@
 # ----------------------------
 # 1. Settings
 # ----------------------------
+
+# Load the MacrophageFramework release used in the manuscript.
+devtools::install_github(
+  "AlessandroPalma-hub/MacrophageFramework",
+  ref = "manuscript-unweighted-v1.0.0",
+  upgrade = "never"
+)
+
+library(MacrophageFramework)
+
 OUTPUT_DIR <- "SENSITIVITY/OVARIAN_SEQUENCING_DEPTH_SENSITIVITY"
 FRACTIONS <- c(0.75, 0.50, 0.25)
 N_REPLICATES <- 10L
