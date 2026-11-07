@@ -2,14 +2,20 @@
 # Reproduces integration, framework summaries, clinical comparisons, and figures.
 
 library(Seurat)
-library(MacrophageFramework)
 library(harmony)
-# Create circos visualizations linking clusters, annotations, and tissues.
 library(circlize)
 library(ggplot2)
 library(dplyr)
 library(tidyr)
 library(scales)
+
+devtools::install_github(
+  "AlessandroPalma-hub/MacrophageFramework",
+  ref = "manuscript-unweighted-v1.0.0",
+  upgrade = "never"
+)
+
+library(MacrophageFramework)
 
 # Load the merged count matrix and aligned cell metadata.
 # Input directory containing the merged count matrix and cell metadata.
