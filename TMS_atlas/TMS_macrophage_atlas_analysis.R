@@ -10,17 +10,30 @@ suppressPackageStartupMessages({
   library(tidyr)
   library(ggplot2)
   library(glmmTMB)
-  library(MacrophageFramework)
 })
 
 set.seed(1982)
+
+devtools::install_github(
+  "AlessandroPalma-hub/MacrophageFramework",
+  ref = "manuscript-unweighted-v1.0.0",
+  upgrade = "never"
+)
+
+library(MacrophageFramework)
 
 # ------------------------------------------------------------
 # 1. Paths and analysis settings
 # ------------------------------------------------------------
 
-data_dir <- "/data02/users_space/palma/MacrophageAtlas/datasets/TMS/MatrixMarket"
-results_dir <- "/data02/users_space/palma/MacrophageAtlas/datasets/TMS/Results"
+# Set this path to the directory containing the TMS tissue folders.
+data_dir <- "PATH_TO_TMS_MATRIXMARKET_DIRECTORY"
+
+# Results will be saved in this directory.
+results_dir <- "TMS_results"
+
+dir.create(results_dir, recursive = TRUE, showWarnings = FALSE)
+dir.create(file.path(results_dir, "Figures"), recursive = TRUE, showWarnings = FALSE)
 dir.create(results_dir, recursive = TRUE, showWarnings = FALSE)
 dir.create(file.path(results_dir, "Figures"), recursive = TRUE, showWarnings = FALSE)
 
@@ -79,7 +92,10 @@ process_tissue <- function(tissue) {
   if (length(keep_clusters) == 0) return(NULL)
 
   macrophages <- subset(seu, subset = seurat_clusters %in% keep_clusters)
-  saveRDS(macrophages, file.path(tissue_dir, paste0(tissue, "_macrophages.rds")))
+  saveRDS(
+  macrophages,
+  file.path(results_dir, paste0(tissue, "_macrophages.rds"))
+)
   macrophages
 }
 
