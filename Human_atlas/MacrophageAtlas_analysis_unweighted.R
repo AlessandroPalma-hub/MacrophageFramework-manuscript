@@ -12,11 +12,14 @@ library(tidyr)
 library(scales)
 
 # Load the merged count matrix and aligned cell metadata.
-base <- "/data02/users_space/palma/MacrophageAtlas"
-output_dir <- file.path(base, "framework_results")
+# Input directory containing the merged count matrix and cell metadata.
+DATA_DIR <- "PATH_TO_HUMAN_ATLAS_INPUT_DIRECTORY"
+
+# Output directory for analysis results.
+output_dir <- "Human_atlas_results"
 dir.create(output_dir, recursive = TRUE, showWarnings = FALSE)
 
-counts <- readRDS(file.path(base, "merged_counts_sparse.rds"))
+counts <- readRDS(file.path(DATA_DIR, "merged_counts_sparse.rds"))
 
 metadata <- readRDS(file.path(base, "atlas_merged_metadata.rds"))
 
