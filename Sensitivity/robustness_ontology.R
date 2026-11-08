@@ -41,7 +41,7 @@ ontology_version <- "v0.4"
 n_iterations <- 1000
 sampling_fraction <- 0.80
 
-macrophage_clusters <- c("2", "4", "11", "14", "15", "16")
+macrophage_clusters <- c("3", "4", "11", "14", "15", "16")
 
 # ------------------------------------------------------------
 # 2. LOAD DATA AND ONTOLOGY
